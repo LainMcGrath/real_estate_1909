@@ -28,4 +28,10 @@ class HouseTest< Minitest::Test
     @house.add_room(@room_2)
     assert_equal [@room_1, @room_2], @house.rooms
   end
+  
+  def test_it_can_calculate_house_area
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    assert_equal 295, @house.area
+  end
 end
