@@ -6,6 +6,7 @@ class House
     @price = price
     @address = address
     @rooms = []
+    @area = area
   end
 
   def add_room(room)
@@ -21,6 +22,17 @@ class House
   def area
     @rooms.reduce(0) do |house_area, room|
       house_area += room.area
+    end
+  end
+
+  def price_per_square_foot
+    (@price.to_f / area.to_f).round(2)
+  end
+
+#does not work but ran out of time
+  def rooms_sorted_by_area
+    room_sort = @rooms.map do |room|
+      room.sort_by {|area| area.size}
     end
   end
 end
